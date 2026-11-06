@@ -7,27 +7,30 @@ use app\models\Account;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\ForbiddenHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
-/**
- * AccountController implements the CRUD actions for Account model.
- */
 class AccountController extends Controller
 {
-    /**
-     * @inheritdoc
-     */
     public function behaviors()
     {
         return [
-	'access' => [
+            'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index', 'create', 'update', 'delete', 'view'],
+                        'actions' => [
+                            'index', 'create', 'update', 'delete', 'view'
+                        ],
                         'allow' => true,
-                        'roles' => ['admin'],
+                        'roles' => ['@'],
+                        'matchCallback' => function ($rule, $action) {
+                            return Yii::$app->authManager->getAssignment(
+                                'Admin',
+                                Yii::$app->user->id
+                            ) !== null;
+                        },
                     ],
                 ],
             ],
@@ -40,10 +43,6 @@ class AccountController extends Controller
         ];
     }
 
-    /**
-     * Lists all Account models.
-     * @return mixed
-     */
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
@@ -55,12 +54,6 @@ class AccountController extends Controller
         ]);
     }
 
-    /**
-     * Displays a single Account model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     public function actionView($id)
     {
         return $this->render('view', [
@@ -68,23 +61,30 @@ class AccountController extends Controller
         ]);
     }
 
-    /**
-     * Creates a new Account model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
     public function actionCreate()
     {
         $model = new Account();
 
         if ($model->load(Yii::$app->request->post())) {
-		$role = \Yii::$app->authManager->getRole(strtolower($model->role));
-           	\Yii::$app->authManager->revokeAll($model->username);
-             	\Yii::$app->authManager->assign($role, $model->username);
-		$model->password = md5($model->password);
-		if($model->save()){
-            		return $this->redirect(['view', 'id' => $model->username]);
-		}
+            $auth = Yii::$app->authManager;
+            $role = $auth->getRole($model->role);
+
+            if (!$role) {
+                $model->addError('role', 'Role tidak valid.');
+            } else {
+                $model->password = Yii::$app->security
+                    ->generatePasswordHash($model->password);
+
+                if ($model->save()) {
+                    $auth->revokeAll($model->username);
+                    $auth->assign($role, $model->username);
+
+                    return $this->redirect([
+                        'view',
+                        'id' => $model->username
+                    ]);
+                }
+            }
         }
 
         return $this->render('create', [
@@ -92,62 +92,62 @@ class AccountController extends Controller
         ]);
     }
 
-    /**
-     * Updates an existing Account model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $oldPassword = $model->password;
 
         if ($model->load(Yii::$app->request->post())) {
-		$role = \Yii::$app->authManager->getRole(strtolower($model->role));
-                \Yii::$app->authManager->revokeAll($model->username);
-                \Yii::$app->authManager->assign($role, $model->username);
-		$model->password = md5($model->password);
+            $auth = Yii::$app->authManager;
+            $role = $auth->getRole($model->role);
 
-                if($model->save()){
-            		return $this->redirect(['view', 'id' => $model->username]);
-		}
+            if (!$role) {
+                $model->addError('role', 'Role tidak valid.');
+            } else {
+                if (empty($model->password)) {
+                    $model->password = $oldPassword;
+                } else {
+                    $model->password = Yii::$app->security
+                        ->generatePasswordHash($model->password);
+                }
+
+                if ($model->save()) {
+                    $auth->revokeAll($model->username);
+                    $auth->assign($role, $model->username);
+
+                    return $this->redirect([
+                        'view',
+                        'id' => $model->username
+                    ]);
+                }
+            }
+        } else {
+            $model->password = '';
         }
-	
-	$model->password = null;
 
         return $this->render('update', [
             'model' => $model,
         ]);
     }
 
-    /**
-     * Deletes an existing Account model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+
+        Yii::$app->authManager->revokeAll($model->username);
+        $model->delete();
 
         return $this->redirect(['index']);
     }
 
-    /**
-     * Finds the Account model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Account the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     protected function findModel($id)
     {
         if (($model = Account::findOne($id)) !== null) {
             return $model;
         }
 
-        throw new NotFoundHttpException('The requested page does not exist.');
+        throw new NotFoundHttpException(
+            'Akun yang diminta tidak ditemukan.'
+        );
     }
 }
