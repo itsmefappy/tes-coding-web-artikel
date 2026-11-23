@@ -1,8 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
-use dosamigos\ckeditor\CKEditor;
+use yii\bootstrap5\ActiveForm;
 use app\models\Post;
 
 /* @var $this yii\web\View */
@@ -11,16 +10,7 @@ use app\models\Post;
 
 $isNewRecord = $model->isNewRecord;
 
-$statusLabels = [
-    Post::STATUS_DRAFT => 'Draft',
-    Post::STATUS_PENDING => 'Menunggu Review',
-    Post::STATUS_PUBLISHED => 'Published',
-    Post::STATUS_REJECTED => 'Ditolak',
-];
-
-$statusLabel = isset($statusLabels[$model->status])
-    ? $statusLabels[$model->status]
-    : 'Draft';
+$statusLabel = $model->getStatusLabel();
 
 ?>
 
@@ -89,14 +79,9 @@ $statusLabel = isset($statusLabels[$model->status])
         </div>
 
         <div class="mb-3">
-            <?= $form->field($model, 'content')->widget(CKEditor::className(), [
-                'preset' => 'full',
-                'options' => [
-                    'rows' => 12,
-                ],
-                'clientOptions' => [
-                    'height' => 400,
-                ],
+            <?= $form->field($model, 'content')->textarea([
+                'rows' => 12,
+                'placeholder' => 'Tulis isi artikel...',
             ])->label('Isi Artikel') ?>
         </div>
 

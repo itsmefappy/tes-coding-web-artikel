@@ -54,8 +54,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         [
                             'class' => 'yii\grid\SerialColumn',
                             'header' => 'No.',
-                            'headerOptions' => ['style' => 'width: 60px; text-align: center;'],
-                            'contentOptions' => ['style' => 'text-align: center;'],
                         ],
                         [
                             'label' => 'Judul Artikel',

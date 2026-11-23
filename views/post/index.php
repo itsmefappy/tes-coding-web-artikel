@@ -12,64 +12,7 @@ $this->params['hideBreadcrumbs'] = true;
 
 ?>
 
-<style>
-/* ACTION BUTTONS */
-.post-index .post-action-buttons {
-    display: inline-flex !important;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: nowrap;
-}
 
-@media (min-width: 768px) {
-    .post-index .table {
-        table-layout: fixed;
-    }
-}
-
-.post-index .table th,
-.post-index .table td {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    vertical-align: middle;
-}
-
-.post-index .post-rejection-reason {
-    display: block;
-    max-width: 100%;
-    font-size: 13px;
-    line-height: 1.45;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.post-index .post-no-reason {
-    color: #a1acb8;
-}
-
-.post-index .post-action-btn {
-    width: 32px;
-    height: 32px;
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    border: none;
-    border-radius: 4px;
-    text-decoration: none !important;
-    flex-shrink: 0;
-    font-size: 14px;
-    background: transparent;
-    color: #697a8d;
-}
-
-.post-index .post-action-btn:hover {
-    background: #f5f5f9;
-    color: #566573;
-}
-</style>
 
 <div class="post-index">
     <!-- PAGE HEADER -->
@@ -146,10 +89,8 @@ $this->params['hideBreadcrumbs'] = true;
                     ],
                     'columns' => [
                         [
-                            'class' => 'yii\\grid\\SerialColumn',
+                            'class' => 'yii\grid\SerialColumn',
                             'header' => 'No.',
-                            'headerOptions' => ['style' => 'width: 60px; text-align: center;'],
-                            'contentOptions' => ['style' => 'width: 140px; text-align: center; white-space: nowrap;',],
                         ],
                         [
                             'label' => 'Judul Artikel',
@@ -173,32 +114,10 @@ $this->params['hideBreadcrumbs'] = true;
                             'label' => 'Status',
                             'format' => 'raw',
                             'value' => function ($model) {
-                                $labels = [
-                                    Post::STATUS_DRAFT => 'Draft',
-                                    Post::STATUS_PENDING => 'Menunggu Review',
-                                    Post::STATUS_PUBLISHED => 'Published',
-                                    Post::STATUS_REJECTED => 'Ditolak',
-                                ];
-
-                                $classes = [
-                                    Post::STATUS_DRAFT => 'badge bg-label-secondary',
-                                    Post::STATUS_PENDING => 'badge bg-label-warning',
-                                    Post::STATUS_PUBLISHED => 'badge bg-label-success',
-                                    Post::STATUS_REJECTED => 'badge bg-label-danger',
-                                ];
-
-                                $status = $model->status;
-
                                 return Html::tag(
                                     'span',
-                                    isset($labels[$status])
-                                        ? $labels[$status]
-                                        : Html::encode($status),
-                                    [
-                                        'class' => isset($classes[$status])
-                                            ? $classes[$status]
-                                            : 'badge bg-label-secondary'
-                                    ]
+                                    Html::encode($model->getStatusLabel()),
+                                    ['class' => $model->getStatusBadgeClass()]
                                 );
                             },
                         ],

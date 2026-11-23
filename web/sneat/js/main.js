@@ -11,6 +11,32 @@ document.addEventListener('DOMContentLoaded', function () {
   if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
     document.body.classList.add('ios');
   }
+
+  const toggleBtn = document.getElementById('theme-toggle');
+  const toggleIcon = document.getElementById('theme-toggle-icon');
+
+  function syncThemeIcon() {
+    const isDark = document.documentElement.classList.contains('dark-style');
+
+    if (toggleIcon) {
+      toggleIcon.className = isDark
+        ? 'bx bx-sun bx-sm'
+        : 'bx bx-moon bx-sm';
+    }
+  }
+
+  if (toggleBtn) {
+    syncThemeIcon();
+
+    toggleBtn.addEventListener('click', function () {
+      const isDark = document.documentElement.classList.toggle('dark-style');
+
+      document.documentElement.classList.toggle('light-style', !isDark);
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+      syncThemeIcon();
+    });
+  }
 });
 
 (function () {

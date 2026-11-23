@@ -26,6 +26,11 @@ use yii\helpers\Url;
                     </a>
                 </li>
             <?php else: ?>
+                <li class="nav-item me-2 me-xl-0">
+                    <a class="nav-link style-switcher-toggle hide-arrow" href="javascript:void(0);" id="theme-toggle" title="Ganti Tema">
+                        <i class="bx bx-moon bx-sm" id="theme-toggle-icon"></i>
+                    </a>
+                </li>
                 <li class="nav-item dropdown dropdown-user navbar-dropdown">
                     <a class="nav-link dropdown-toggle hide-arrow p-0" href="javascript:void(0);" data-bs-toggle="dropdown">
                         <div class="avatar avatar-online">

@@ -293,6 +293,16 @@ html {
     .post-index .table { table-layout: fixed; }
 }
 
+/* Kolom nomor urut semua tabel Yii GridView.
+   Ubah di sini, seluruh tabel di semua halaman ikut berubah. */
+.grid-view .table th:first-child,
+.grid-view .table td:first-child {
+    width: 70px;
+    min-width: 70px;
+    text-align: center;
+    white-space: nowrap;
+}
+
 @media (max-width: 767.98px) {
     .layout-navbar.container-xxl {
         margin-left: .75rem;
@@ -365,3 +375,424 @@ html {
     height: 30px;
     object-fit: contain;
 }
+
+.home-hero {
+    position: relative;
+    background: linear-gradient(135deg, var(--app-primary), #245580);
+    border-radius: 9px;
+    padding: 55px 45px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(51,122,183,0.15);
+}
+
+.home-hero::after {
+    content: "";
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    border: 35px solid rgba(255,255,255,0.07);
+    border-radius: 50%;
+    right: -65px;
+    top: -75px;
+}
+
+.home-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+}
+
+.home-hero-label {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    padding: 7px 13px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 17px;
+}
+
+.home-hero h1 {
+    color: #fff;
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 0 0 15px;
+}
+
+.home-hero p {
+    color: rgba(255,255,255,0.88);
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.home-hero .btn {
+    background: #fff;
+    color: var(--app-primary-dark);
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 11px 19px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.home-hero .btn:hover {
+    background: #edf5fc;
+    color: var(--app-primary-dark);
+}
+
+@media (max-width: 767px) {
+    .home-hero {
+        padding: 35px 23px;
+    }
+
+    .home-hero h1 {
+        font-size: 25px;
+    }
+
+    .home-hero p {
+        font-size: 13px;
+    }
+}
+
+.home-article-card {
+    height: 100%;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.home-article-card:hover {
+    box-shadow: 0 .25rem 1rem rgba(38, 60, 85, .12);
+    transform: translateY(-3px);
+}
+
+.home-article-card .card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.home-article-icon {
+    align-items: center;
+    background: #eae8fd;
+    border-radius: .375rem;
+    color: var(--app-primary);
+    display: flex;
+    height: 2.5rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+    width: 2.5rem;
+}
+
+.home-article-card h3 {
+    color: var(--app-heading);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: .75rem;
+}
+
+.home-article-meta {
+    color: var(--app-muted);
+    font-size: .75rem;
+    margin-bottom: 1rem;
+}
+
+.home-article-meta span + span {
+    margin-left: .75rem;
+}
+
+.home-article-content {
+    color: var(--app-muted);
+    display: -webkit-box;
+    font-size: .8125rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.home-article-footer {
+    border-top: 1px solid var(--app-border);
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+.home-read-more {
+    color: var(--app-primary);
+    font-size: .8125rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.home-read-more:hover {
+    color: var(--app-primary-dark);
+}
+
+.home-empty {
+    text-align: center;
+}
+
+.home-empty .bx {
+    color: var(--app-muted);
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+}
+
+/* ACTION BUTTONS */
+.post-index .post-action-buttons {
+    display: inline-flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;
+}
+
+@media (min-width: 768px) {
+    .post-index .table {
+        table-layout: fixed;
+    }
+}
+
+.post-index .table th,
+.post-index .table td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+
+.post-index .post-rejection-reason {
+    display: block;
+    max-width: 100%;
+    font-size: 13px;
+    line-height: 1.45;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.post-index .post-no-reason {
+    color: #a1acb8;
+}
+
+.post-index .post-action-btn {
+    width: 32px;
+    height: 32px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none !important;
+    flex-shrink: 0;
+    font-size: 14px;
+    background: transparent;
+    color: #697a8d;
+}
+
+.post-index .post-action-btn:hover {
+    background: #f5f5f9;
+    color: #566573;
+}
+
+.post-update-header {
+    background: #fff;
+    border: 1px solid #e8edf3;
+    border-left: 4px solid var(--app-primary);
+    border-radius: 7px;
+    padding: 22px 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.post-update-header h1 {
+    color: var(--app-heading);
+    font-size: 23px;
+    font-weight: 600;
+    margin: 0 0 8px;
+}
+
+.post-update-header p {
+    color: #667085;
+    font-size: 13px;
+    margin: 0;
+}
+
+@media (max-width: 767px) {
+    .post-update-header {
+        padding: 17px;
+    }
+
+    .post-update-header h1 {
+        font-size: 20px;
+    }
+}
+
+/* User Detail Sneat Card Profile */
+.user-profile-wrapper {
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+.user-profile-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 14px 0 rgba(38, 60, 85, 0.1);
+    border: 1px solid #e8edf3;
+    overflow: hidden;
+}
+
+.user-profile-body {
+    padding: 2.25rem 2rem 2rem;
+    text-align: center;
+}
+
+.user-avatar-box {
+    width: 110px;
+    height: 110px;
+    border-radius: 12px;
+    margin: 0 auto 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #696cff 0%, #3f42db 100%);
+    box-shadow: 0 4px 12px rgba(105, 108, 255, 0.35);
+}
+
+.user-avatar-author {
+    background: linear-gradient(135deg, var(--app-success) 0%, #44b60c 100%);
+    box-shadow: 0 4px 12px rgba(113, 221, 55, 0.35);
+}
+
+.user-profile-name {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #384551;
+    margin-bottom: 0.35rem;
+}
+
+.user-badge-role {
+    display: inline-block;
+    padding: 0.3rem 0.85rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-role-admin {
+    background: #eae8fd;
+    color: #696cff;
+}
+
+.badge-role-author {
+    background: #e8fadf;
+    color: var(--app-success);
+}
+
+/* Mini stat counter */
+.user-stat-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1.75rem 0 1.75rem;
+}
+
+.user-stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-align: left;
+}
+
+.user-stat-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+}
+
+.stat-icon-task {
+    background: #eae8fd;
+    color: #696cff;
+}
+
+.stat-icon-project {
+    background: #e8fadf;
+    color: var(--app-success);
+}
+
+.user-stat-value {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #384551;
+    line-height: 1.2;
+}
+
+.user-stat-label {
+    font-size: 0.8rem;
+    color: #677788;
+}
+
+/* Detail list section */
+.user-details-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #384551;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.user-details-divider {
+    border-top: 1px solid #e8edf3;
+    margin-bottom: 1.25rem;
+}
+
+.user-detail-row {
+    display: flex;
+    align-items: flex-start;
+    padding: 0.45rem 0;
+    font-size: 0.875rem;
+    text-align: left;
+}
+
+.user-detail-label {
+    width: 38%;
+    font-weight: 600;
+    color: #384551;
+}
+
+.user-detail-value {
+    width: 62%;
+    color: #677788;
+    word-break: break-word;
+}
+
+/* Action button area */
+.user-action-footer {
+    display: flex;
+    justify-content: center;
+    gap: 0.85rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e8edf3;
+}
+
+.user-action-footer .btn {
+    padding: 0.55rem 1.4rem;
+    font-weight: 600;
+    border-radius: 6px;
+    font-size: 0.875rem;
+}
+

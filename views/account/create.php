@@ -17,9 +17,9 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="account-centered">
     <div class="account-card">
         <div class="account-card-header">
-            <div class="account-card-title">Create User Information</div>
+            <div class="account-card-title">Buat Akun Baru</div>
             <p class="account-card-subtitle">
-                Add a new user account and assign its role.
+                Tambahkan akun pengguna baru dan tetapkan perannya.
             </p>
         </div>
 

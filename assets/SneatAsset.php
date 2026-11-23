@@ -23,6 +23,7 @@ class SneatAsset extends AssetBundle
         'sneat/vendor/fonts/iconify-icons.css',
         'sneat/vendor/css/core.css',
         'css/site.css',
+        'css/dark-mode.css'
     ];
     public $js = [
         'sneat/vendor/js/bootstrap.js',
@@ -32,7 +33,7 @@ class SneatAsset extends AssetBundle
     ];
     public $depends = [
         'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
+        'yii\bootstrap5\BootstrapAsset',
     ];
 
 }

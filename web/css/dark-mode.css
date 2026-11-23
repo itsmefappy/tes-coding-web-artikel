@@ -1,0 +1,498 @@
+html.dark-style {
+  color-scheme: dark;
+}
+
+html.dark-style body {
+  background-color: #232333;
+  color: #cbcbe2;
+}
+
+/* Teks & Heading */
+html.dark-style h1, html.dark-style h2, html.dark-style h3,
+html.dark-style h4, html.dark-style h5, html.dark-style h6,
+html.dark-style .h1, html.dark-style .h2, html.dark-style .h3,
+html.dark-style .h4, html.dark-style .h5, html.dark-style .h6,
+html.dark-style .fw-semibold, html.dark-style .fw-bold {
+  color: #cfd3ec !important;
+}
+
+html.dark-style .text-muted {
+  color: #7e8299 !important;
+}
+
+/* Sidebar */
+html.dark-style .bg-menu-theme {
+  --bs-menu-hover-bg: rgba(255, 255, 255, 0.06) !important;
+  --bs-menu-hover-color: #cfd3ec !important;
+  background-color: #2b2c40 !important;
+  color: #a3a4cc;
+  box-shadow: 0 0.125rem 0.375rem 0 rgba(0, 0, 0, 0.25);
+}
+
+html.dark-style .bg-menu-theme .menu-link,
+html.dark-style .bg-menu-theme .menu-horizontal-prev,
+html.dark-style .bg-menu-theme .menu-horizontal-next {
+  color: #a3a4cc;
+}
+
+html.dark-style .bg-menu-theme .menu-item.active > .menu-link:not(.menu-toggle) {
+  background-color: rgba(105, 108, 255, 0.16) !important;
+  color: #696cff !important;
+}
+
+html.dark-style .bg-menu-theme .menu-item .menu-link:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #cfd3ec;
+}
+
+html.dark-style .app-brand-text {
+  color: #cfd3ec !important;
+}
+
+/* Navbar & Footer */
+html.dark-style .bg-navbar-theme {
+  background-color: rgba(43, 44, 64, 0.92) !important;
+  color: #a3a4cc;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+html.dark-style .bg-navbar-theme .nav-link,
+html.dark-style #theme-toggle,
+html.dark-style #theme-toggle-icon {
+  color: #cfd3ec !important;
+}
+
+html.dark-style #theme-toggle:hover #theme-toggle-icon {
+  color: #696cff !important;
+}
+
+html.dark-style .bg-footer-theme {
+  background-color: #232333 !important;
+  color: #a3a4cc;
+}
+
+/* Card & Box */
+html.dark-style .card {
+  background-color: #2b2c40;
+  color: #cbcbe2;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+html.dark-style .card-header,
+html.dark-style .card-footer {
+  border-color: #444564;
+}
+
+/* Form Input & Select */
+html.dark-style .form-control,
+html.dark-style .form-select,
+html.dark-style .input-group-text {
+  background-color: #2b2c40;
+  border-color: #444564;
+  color: #cbcbe2;
+}
+
+html.dark-style .form-select {
+  --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23cbcbe2' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  background-image: var(--bs-form-select-bg-img) !important;
+}
+
+/* Native <select> popup options: keep them dark, not OS default white. */
+html.dark-style .form-select option,
+html.dark-style select option {
+  background-color: #2b2c40 !important;
+  color: #cfd3ec !important;
+}
+
+html.dark-style .form-select option:checked,
+html.dark-style .form-select option:hover,
+html.dark-style select option:checked,
+html.dark-style select option:hover {
+  background-color: #696cff !important;
+  color: #fff !important;
+}
+
+html.dark-style .form-control:focus,
+html.dark-style .form-select:focus {
+  background-color: #2b2c40;
+  border-color: #696cff;
+  color: #cfd3ec;
+}
+
+/* Tabel */
+html.dark-style .table {
+  --bs-table-bg: transparent;
+  --bs-table-color: #cbcbe2;
+  --bs-table-border-color: #444564;
+  color: #cbcbe2;
+}
+
+html.dark-style .table th {
+  color: #cfd3ec;
+  border-bottom-color: #444564;
+}
+
+html.dark-style .table td {
+  border-color: #444564;
+}
+
+/* Dropdown & Modal */
+html.dark-style .dropdown-menu,
+html.dark-style .modal-content {
+  background-color: #2b2c40;
+  border-color: #444564;
+  color: #cbcbe2;
+}
+
+html.dark-style .dropdown-item {
+  color: #cbcbe2;
+}
+
+html.dark-style .dropdown-item:hover,
+html.dark-style .dropdown-item:focus {
+  background-color: rgba(105, 108, 255, 0.16);
+  color: #696cff;
+}
+
+html.dark-style .dropdown-divider {
+  border-color: #444564;
+}
+
+/* Form labels and values: keep text readable on dark surfaces. */
+html.dark-style label,
+html.dark-style .form-label,
+html.dark-style .form-check-label {
+  color: #cfd3ec !important;
+}
+
+html.dark-style .form-control,
+html.dark-style .form-select,
+html.dark-style textarea,
+html.dark-style input {
+  background-color: #2b2c40;
+  border-color: #444564;
+  color: #cfd3ec !important;
+  caret-color: #cfd3ec;
+}
+
+html.dark-style .form-control::placeholder,
+html.dark-style .form-select::placeholder,
+html.dark-style textarea::placeholder,
+html.dark-style input::placeholder {
+  color: #8588a8;
+}
+
+html.dark-style .form-control:focus,
+html.dark-style .form-select:focus,
+html.dark-style textarea:focus,
+html.dark-style input:focus {
+  background-color: #2b2c40;
+  border-color: #696cff;
+  color: #cfd3ec !important;
+}
+
+/* Disabled & Readonly form controls */
+html.dark-style .form-control:disabled,
+html.dark-style .form-control[readonly],
+html.dark-style .form-select:disabled {
+  background-color: #242538 !important;
+  border-color: #3b3c57 !important;
+  color: #9295b8 !important;
+  -webkit-text-fill-color: #9295b8 !important;
+  opacity: 0.9 !important;
+}
+
+/* Browser autofill override (Chrome / Edge / Firefox) */
+html.dark-style input:-webkit-autofill,
+html.dark-style input:-webkit-autofill:hover,
+html.dark-style input:-webkit-autofill:focus,
+html.dark-style textarea:-webkit-autofill,
+html.dark-style select:-webkit-autofill {
+  -webkit-text-fill-color: #cfd3ec !important;
+  -webkit-box-shadow: 0 0 0px 1000px #2b2c40 inset !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
+/* Checkbox & Radios */
+html.dark-style .form-check-input {
+  background-color: #2b2c40;
+  border-color: #444564;
+}
+
+html.dark-style .form-check-input:checked {
+  background-color: #696cff;
+  border-color: #696cff;
+}
+
+/* Validation: red means error, green means valid. */
+html.dark-style .form-control.is-invalid,
+html.dark-style .form-select.is-invalid,
+html.dark-style .has-error .form-control,
+html.dark-style .has-error .form-select {
+  border-color: #ff3e1d !important;
+}
+
+html.dark-style .form-control.is-valid,
+html.dark-style .form-select.is-valid,
+html.dark-style .has-success .form-control,
+html.dark-style .has-success .form-select {
+  border-color: #71dd37 !important;
+}
+
+html.dark-style .invalid-feedback,
+html.dark-style .help-block {
+  color: #ff6b57 !important;
+}
+
+html.dark-style .valid-feedback {
+  color: #71dd37 !important;
+}
+
+/* Sidebar active state: no white light-theme panel in dark mode. */
+html.dark-style .bg-menu-theme {
+  --bs-menu-active-bg: rgba(105, 108, 255, 0.18) !important;
+  --bs-menu-active-color: #696cff !important;
+}
+
+html.dark-style .bg-menu-theme .menu-item.active > .menu-link {
+  background-color: rgba(105, 108, 255, 0.18) !important;
+  color: #696cff !important;
+}
+
+html.dark-style .bg-menu-theme .menu-item.active > .menu-link::before {
+  background-color: #696cff !important;
+}
+
+html.dark-style .bg-menu-theme .menu-item:not(.active) > .menu-link {
+  color: #a3a4cc;
+}
+
+/* CSS Theme Tokens Override */
+html.dark-style {
+  --app-heading: #cfd3ec;
+  --app-muted: #a3a4cc;
+  --app-border: #444564;
+  --app-surface: #2b2c40;
+}
+
+/* Utility borders & background overrides */
+html.dark-style .border,
+html.dark-style .border-top,
+html.dark-style .border-bottom,
+html.dark-style .border-start,
+html.dark-style .border-end {
+  border-color: #444564 !important;
+}
+
+html.dark-style .bg-light {
+  background-color: #32344d !important;
+  color: #cbcbe2 !important;
+}
+
+html.dark-style code {
+  color: #e28743;
+}
+
+/* Pagination */
+html.dark-style .page-link {
+  background-color: #2b2c40;
+  border-color: #444564;
+  color: #a3a4cc;
+}
+
+html.dark-style .page-link:hover,
+html.dark-style .page-link:focus {
+  background-color: rgba(105, 108, 255, 0.16);
+  border-color: #696cff;
+  color: #696cff;
+}
+
+html.dark-style .page-item.active .page-link {
+  background-color: #696cff;
+  border-color: #696cff;
+  color: #fff;
+}
+
+html.dark-style .page-item.disabled .page-link {
+  background-color: #232333;
+  border-color: #444564;
+  color: #565879;
+}
+
+/* Breadcrumbs */
+html.dark-style .breadcrumb-item,
+html.dark-style .breadcrumb-item a {
+  color: #a3a4cc;
+}
+
+html.dark-style .breadcrumb-item.active {
+  color: #cfd3ec;
+}
+
+html.dark-style .breadcrumb-item + .breadcrumb-item::before {
+  color: #636587;
+}
+
+/* Badges (bg-label-*) */
+html.dark-style .bg-label-primary {
+  background-color: rgba(105, 108, 255, 0.16) !important;
+  color: #696cff !important;
+}
+
+html.dark-style .bg-label-secondary {
+  background-color: rgba(133, 146, 163, 0.16) !important;
+  color: #a8b1bb !important;
+}
+
+html.dark-style .bg-label-success {
+  background-color: rgba(113, 221, 55, 0.16) !important;
+  color: #71dd37 !important;
+}
+
+html.dark-style .bg-label-info {
+  background-color: rgba(3, 195, 236, 0.16) !important;
+  color: #03c3ec !important;
+}
+
+html.dark-style .bg-label-warning {
+  background-color: rgba(255, 171, 0, 0.16) !important;
+  color: #ffab00 !important;
+}
+
+html.dark-style .bg-label-danger {
+  background-color: rgba(255, 62, 29, 0.16) !important;
+  color: #ff3e1d !important;
+}
+
+/* Alerts */
+html.dark-style .alert-primary {
+  background-color: rgba(105, 108, 255, 0.18);
+  border-color: rgba(105, 108, 255, 0.35);
+  color: #cfd3ec;
+}
+
+html.dark-style .alert-success {
+  background-color: rgba(113, 221, 55, 0.18);
+  border-color: rgba(113, 221, 55, 0.35);
+  color: #cfd3ec;
+}
+
+html.dark-style .alert-warning {
+  background-color: rgba(255, 171, 0, 0.18);
+  border-color: rgba(255, 171, 0, 0.35);
+  color: #cfd3ec;
+}
+
+html.dark-style .alert-danger {
+  background-color: rgba(255, 62, 29, 0.18);
+  border-color: rgba(255, 62, 29, 0.35);
+  color: #cfd3ec;
+}
+
+html.dark-style .alert-info {
+  background-color: rgba(3, 195, 236, 0.18);
+  border-color: rgba(3, 195, 236, 0.35);
+  color: #cfd3ec;
+}
+
+/* Custom Card & Profile Overrides */
+html.dark-style .account-card,
+html.dark-style .user-profile-card,
+html.dark-style .post-update-header,
+html.dark-style .page-header-card,
+html.dark-style .home-article-card {
+  background-color: #2b2c40 !important;
+  border-color: #444564 !important;
+  color: #cbcbe2;
+}
+
+html.dark-style .account-card-title,
+html.dark-style .user-profile-name,
+html.dark-style .user-stat-value,
+html.dark-style .user-details-title,
+html.dark-style .user-detail-label,
+html.dark-style .post-update-header h1,
+html.dark-style .home-article-card h3,
+html.dark-style .text-heading {
+  color: #cfd3ec !important;
+}
+
+html.dark-style .account-card-subtitle,
+html.dark-style .user-detail-value,
+html.dark-style .user-stat-label,
+html.dark-style .post-update-header p,
+html.dark-style .home-article-meta,
+html.dark-style .home-article-content,
+html.dark-style .text-body-secondary {
+  color: #a3a4cc !important;
+}
+
+html.dark-style .account-card-footer,
+html.dark-style .user-details-divider,
+html.dark-style .user-action-footer,
+html.dark-style .home-article-footer {
+  border-color: #444564 !important;
+}
+
+/* Account & Post Action Buttons in Tables */
+html.dark-style .account-action-buttons .btn,
+html.dark-style .post-index .post-action-btn {
+  color: #a3a4cc;
+}
+
+html.dark-style .account-action-buttons .btn:hover,
+html.dark-style .post-index .post-action-btn:hover {
+  background-color: #383a54;
+  color: #cfd3ec;
+}
+
+html.dark-style .post-index .post-no-reason {
+  color: #636587;
+}
+
+/* Forms & Textareas with higher specificity */
+html.dark-style .account-form .form-control,
+html.dark-style .pending-reject-form textarea {
+  background-color: #2b2c40 !important;
+  border-color: #444564 !important;
+  color: #cbcbe2 !important;
+}
+
+html.dark-style .account-form .form-control:focus,
+html.dark-style .pending-reject-form textarea:focus {
+  border-color: #696cff !important;
+  color: #cfd3ec !important;
+}
+
+html.dark-style .account-form .control-label,
+html.dark-style .account-form label {
+  color: #cfd3ec !important;
+}
+
+/* Role Badges & Stat Icons */
+html.dark-style .account-role-admin,
+html.dark-style .badge-role-admin,
+html.dark-style .stat-icon-task,
+html.dark-style .home-article-icon {
+  background: rgba(105, 108, 255, 0.18) !important;
+  color: #696cff !important;
+}
+
+html.dark-style .account-role-author,
+html.dark-style .badge-role-author,
+html.dark-style .stat-icon-project {
+  background: rgba(113, 221, 55, 0.18) !important;
+  color: #71dd37 !important;
+}
+
+/* Custom Buttons */
+html.dark-style .btn-sneat-back {
+  border-color: #444564;
+  color: #a3a4cc;
+}
+
+html.dark-style .btn-sneat-back:hover {
+  background-color: #383a54;
+  border-color: #444564;
+  color: #fff;
+}

@@ -142,6 +142,16 @@ class Post extends \yii\db\ActiveRecord
         ];
     }
 
+    public static function getStatusBadgeClasses()
+    {
+        return [
+            self::STATUS_DRAFT => 'badge bg-label-secondary',
+            self::STATUS_PENDING => 'badge bg-label-warning',
+            self::STATUS_PUBLISHED => 'badge bg-label-success',
+            self::STATUS_REJECTED => 'badge bg-label-danger',
+        ];
+    }
+
     public function getStatusLabel()
     {
         $options = self::getStatusOptions();
@@ -149,5 +159,14 @@ class Post extends \yii\db\ActiveRecord
         return isset($options[$this->status])
             ? $options[$this->status]
             : $this->status;
+    }
+
+    public function getStatusBadgeClass()
+    {
+        $classes = self::getStatusBadgeClasses();
+
+        return isset($classes[$this->status])
+            ? $classes[$this->status]
+            : 'badge bg-label-secondary';
     }
 }

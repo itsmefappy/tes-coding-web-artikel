@@ -47,27 +47,9 @@ $canSubmit = (
     Post::STATUS_REJECTED
 ]);
 
-$statusLabels = [
-    Post::STATUS_DRAFT => 'Draft',
-    Post::STATUS_PENDING => 'Menunggu Review',
-    Post::STATUS_PUBLISHED => 'Published',
-    Post::STATUS_REJECTED => 'Ditolak',
-];
+$statusLabel = $model->getStatusLabel();
 
-$statusClasses = [
-    Post::STATUS_DRAFT => 'badge bg-label-secondary',
-    Post::STATUS_PENDING => 'badge bg-label-warning',
-    Post::STATUS_PUBLISHED => 'badge bg-label-success',
-    Post::STATUS_REJECTED => 'badge bg-label-danger',
-];
-
-$statusLabel = isset($statusLabels[$model->status])
-    ? $statusLabels[$model->status]
-    : $model->status;
-
-$statusClass = isset($statusClasses[$model->status])
-    ? $statusClasses[$model->status]
-    : 'badge bg-label-secondary';
+$statusClass = $model->getStatusBadgeClass();
 
 ?>
 
@@ -160,7 +142,7 @@ $statusClass = isset($statusClasses[$model->status])
         </div>
         <div class="card-body">
             <div class="post-content">
-                <?= $model->content ?>
+                <?= nl2br(Html::encode($model->content)) ?>
             </div>
         </div>
     </div>

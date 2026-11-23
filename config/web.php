@@ -47,6 +47,16 @@ $config = [
             ],
         ],
         'db' => $db,
+        'assetManager' => [
+            'bundles' => [
+                'yii\\bootstrap5\\BootstrapAsset' => [
+                    'css' => [],
+                ],
+                'yii\\bootstrap5\\BootstrapPluginAsset' => [
+                    'js' => [],
+                ],
+            ],
+        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,

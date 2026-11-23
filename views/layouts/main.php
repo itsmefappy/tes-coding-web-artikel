@@ -20,6 +20,14 @@ $this->registerMetaTag(['name' => 'viewport', 'content' => 'width=device-width, 
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" class="light-style layout-menu-fixed" data-theme="theme-default">
 <head>
+    <script>
+    (function () {
+        var theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.classList.toggle('dark-style', theme === 'dark');
+        document.documentElement.classList.toggle('light-style', theme !== 'dark');
+    })();
+    </script>
+
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
