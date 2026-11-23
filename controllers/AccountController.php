@@ -64,6 +64,10 @@ class AccountController extends Controller
     public function actionCreate()
     {
         $model = new Account();
+<<<<<<< HEAD
+=======
+        $model->scenario = 'create';
+>>>>>>> main
 
         if ($model->load(Yii::$app->request->post())) {
             $auth = Yii::$app->authManager;

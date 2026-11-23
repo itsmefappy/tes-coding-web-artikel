@@ -22,7 +22,11 @@ use Yii;
  * @author Kartik Visweswaran <kartikv2@gmail.com>
  * @author Alexander Makarov <sam@rmcreative.ru>
  */
+<<<<<<< HEAD
 class Alert extends \yii\bootstrap\Widget
+=======
+class Alert extends \yii\bootstrap5\Widget
+>>>>>>> main
 {
     /**
      * @var array the alert types configuration for the flash messages.
@@ -39,7 +43,11 @@ class Alert extends \yii\bootstrap\Widget
     ];
     /**
      * @var array the options for rendering the close button tag.
+<<<<<<< HEAD
      * Array will be passed to [[\yii\bootstrap\Alert::closeButton]].
+=======
+     * Array will be passed to [[\yii\bootstrap5\Alert::closeButton]].
+>>>>>>> main
      */
     public $closeButton = [];
 
@@ -59,7 +67,11 @@ class Alert extends \yii\bootstrap\Widget
             }
 
             foreach ((array) $flash as $i => $message) {
+<<<<<<< HEAD
                 echo \yii\bootstrap\Alert::widget([
+=======
+                echo \yii\bootstrap5\Alert::widget([
+>>>>>>> main
                     'body' => $message,
                     'closeButton' => $this->closeButton,
                     'options' => array_merge($this->options, [

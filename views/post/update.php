@@ -22,6 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 
+<<<<<<< HEAD
 <style>
 
 .post-update-header {
@@ -58,6 +59,9 @@ $this->params['breadcrumbs'][] = $this->title;
 }
 
 </style>
+=======
+
+>>>>>>> main
 
 
 <div class="post-update">
@@ -65,7 +69,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="post-update-header">
 
         <h1>
+<<<<<<< HEAD
             <span class="glyphicon glyphicon-pencil"></span>
+=======
+            <i class="bx bx-pencil me-2"></i>
+>>>>>>> main
             <?= Html::encode($this->title) ?>
         </h1>
 

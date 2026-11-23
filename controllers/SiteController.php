@@ -77,13 +77,22 @@ public function actionMobile(){
      */
     public function actionLogin()
     {
+<<<<<<< HEAD
+=======
+        $this->layout = 'blank';
+
+>>>>>>> main
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+<<<<<<< HEAD
             return $this->redirect(['site/index']);
+=======
+            return $this->redirect(['dashboard/index']);
+>>>>>>> main
         }
         return $this->render('login', [
             'model' => $model,

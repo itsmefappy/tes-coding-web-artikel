@@ -30,8 +30,14 @@ class Account extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+<<<<<<< HEAD
             [['username', 'password', 'name', 'role'], 'required'],
             [['password'], 'string', 'max' => 250],
+=======
+            [['username', 'name', 'role'], 'required'],
+            [['password'], 'string', 'max' => 250],
+            [['password'], 'required', 'on' => 'create'],
+>>>>>>> main
             [['username','name'], 'string', 'max' => 45],
             [['role'], 'string', 'max' => 8],
         ];
@@ -45,7 +51,11 @@ class Account extends \yii\db\ActiveRecord
         return [
             'username' => 'Username',
             'password' => 'Password',
+<<<<<<< HEAD
             'name' => 'Name',
+=======
+            'name' => 'Nama',
+>>>>>>> main
             'role' => 'Role',
         ];
     }

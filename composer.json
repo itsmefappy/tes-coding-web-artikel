@@ -16,6 +16,7 @@
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": "~2.0.5",
+<<<<<<< HEAD
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
 	"2amigos/yii2-ckeditor-widget": "*"
@@ -23,6 +24,11 @@
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
         "yiisoft/yii2-gii": "~2.0.0"
+=======
+        "yiisoft/yii2-swiftmailer": "~2.0.0",
+	"2amigos/yii2-ckeditor-widget": "*",
+        "yiisoft/yii2-bootstrap5": "^2.0"
+>>>>>>> main
     },
     "config": {
         "process-timeout": 1800,
@@ -60,5 +66,12 @@
             "type": "composer",
             "url": "https://asset-packagist.org"
         }
+<<<<<<< HEAD
     ]
+=======
+    ],
+    "require-dev": {
+        "yiisoft/yii2-gii": "^2.2"
+    }
+>>>>>>> main
 }
